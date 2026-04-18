@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel's Education Centre | Professional DSE Math Tuition</title>
+    <style>
+        :root {
+            --primary: #26c6da;
+            --primary-light: #b2ebf2;
+            --bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+            --glass: rgba(255, 255, 255, 0.7);
+            --text: #37474f;
+            --accent: #00838f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 8%; background: var(--glass);
+            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img { height: 60px; border-radius: 8px; }
+
+        nav a { color: var(--text); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.95rem; }
+        nav a:hover { color: var(--primary); }
+
+        .hero {
+            text-align: center; padding: 80px 10%;
+            background: radial-gradient(circle at top right, #e0f2f1, transparent);
+        }
+        .hero h1 { font-size: 2.8rem; color: var(--accent); margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.1rem; color: #546e7a; max-width: 800px; margin: 0 auto; }
+
+        .section-container { padding: 40px 10%; }
+
+        .glass-panel {
+            background: var(--glass); border: 1px solid white;
+            padding: 40px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 30px; backdrop-filter: blur(5px);
+        }
+
+        /* Syllabus Table Styling */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border-radius: 15px; overflow: hidden; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #e0f7fa; }
+        th { background: var(--primary); color: white; }
+        tr:hover { background: #f0fdff; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        .card {
+            background: white; padding: 30px; border-radius: 25px;
+            border: 1px solid var(--primary-light);
+            transition: 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(38, 198, 218, 0.1); }
+        .card h3 { color: var(--accent); margin-bottom: 15px; }
+
+        /* Hours Grid */
+        .hours-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 25px; }
+        .hour-item { background: white; padding: 15px; border-radius: 15px; border: 1px solid var(--primary-light); text-align: center; font-weight: 500; }
+
+        .event-banner { 
+            background: linear-gradient(45deg, var(--accent), var(--primary)); 
+            color: white; padding: 40px; border-radius: 30px; text-align: center;
+        }
+
+        /* AI Chat Widget */
+        #ai-trigger {
+            position: fixed; bottom: 30px; right: 30px; 
+            background: var(--primary); width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 10px 25px rgba(38, 198, 218, 0.4);
+            z-index: 1000; color: white; font-size: 24px;
+        }
+
+        #ai-box {
+            position: fixed; bottom: 110px; right: 30px; width: 360px; height: 500px;
+            background: white; border-radius: 25px; display: none; flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 1px solid var(--primary-light);
+            z-index: 1000; overflow: hidden;
+        }
+
+        .ai-header { background: var(--primary); color: white; padding: 20px; font-weight: bold; display: flex; justify-content: space-between; }
+        #ai-chat { flex: 1; padding: 20px; overflow-y: auto; background: #f8fdfe; display: flex; flex-direction: column; gap: 10px; }
+        .msg { padding: 12px 18px; border-radius: 15px; max-width: 80%; font-size: 0.9rem; }
+        .msg-bot { background: white; border: 1px solid var(--primary-light); align-self: flex-start; }
+        .msg-user { background: var(--primary-light); align-self: flex-end; }
+        .ai-input { padding: 20px; display: flex; gap: 10px; border-top: 1px solid #eee; }
+        .ai-input input { flex: 1; padding: 12px; border-radius: 15px; border: 1px solid #ddd; outline: none; }
+        .ai-input button { background: var(--primary); color: white; border: none; padding: 0 15px; border-radius: 12px; cursor: pointer; font-weight: bold; }
+
+        footer { text-align: center; padding: 40px; font-size: 0.8rem; opacity: 0.6; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="PASTE_YOUR_BASE64_CODE_HERE" alt="Daniel's Education Centre Logo">
+            <div>
+                <h2 style="font-size: 1.2rem; color: var(--accent);">Daniel's Education Centre</h2>
+                <p style="font-size: 0.7rem; letter-spacing: 1px;">EXCELLENCE IN MATHEMATICS</p>
+            </div>
+        </div>
+     <nav>
+    <a href="index-en.html">About Us</a>
+    <a href="formulas.html">Formulas</a>
+    <a href="videos.html">Videos</a>
+    <a href="#books">DSE Study Guide</a>
+    <a href="#contact">Contact</a>
+    <a href="index.html" class="lang-btn">中文</a>
+</nav>
+    </header>
+
+    <section class="hero">
+       	<h1>Daniel's Education Centre</h1>
+	<h1>Empowering the Next Generation</h1>
+        <p>San Po Kong's premier Mathematics resource and DSE tuition centre. With over 20 years of experience, we help students master the beauty of numbers.</p>
+    </section>
+
+    <div class="section-container" id="about">
+        <div class="glass-panel">
+            <h2 style="color: var(--accent); margin-bottom: 1rem;">Our Mission</h2>
+            <p>At Daniel's Education Centre, we believe every student has the potential to excel. Beyond just improving grades, we aim to build confidence and a genuine passion for learning, allowing students to surpass expectations.</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Small Group Tuition</h3>
+                <p>Tailored for F1–F6 Hong Kong curricula. We focus on conceptual clarity, problem-solving techniques, and exam strategies.</p>
+            </div>
+            <div class="card">
+                <h3>Professional Resources</h3>
+                <p>Trusted by over 20 secondary schools in HK. Our notes and exercises are updated annually to match the latest DSE trends.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container" id="syllabus">
+        <div class="glass-panel">
+            <h2 style="color: var(--accent); margin-bottom: 1rem;">HKDSE Maths: Resource Selection Guide</h2>
+            <p>Select the right material based on your learning goals and target syllabus topics:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Recommended Resource</th>
+                        <th>Target DSE Topics / Audience</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Section A(1) & A(2) Drills</strong></td>
+                        <td>Compulsory Part Section A core topics (Arithmetic, Percentages, Geometry, Statistics)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5** Complete Notes</strong></td>
+                        <td>Full Course Comprehensive Notes (Section B Advanced topics, 3D Trig, Circles, Probability)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HKDSE Solution Guide</strong></td>
+                        <td>1998-2026 Past Paper Detailed Solutions (Full Compulsory syllabus for final revision)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M1 / M2 Specialised Guides</strong></td>
+                        <td>Extended Modules (Calculus, Matrices, Vectors, Statistical Distributions)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section-container" id="event">
+        <div class="event-banner">
+            <h2>📅 2026 HK Book Fair Preview</h2>
+            <p style="margin: 15px 0;">We look forward to seeing you at the <strong>Hong Kong Book Fair this July</strong>!</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Official launch of the <strong>2026 Edition 5** Series</strong>. Special student discounts available on-site.</p>
+        </div>
+    </div>
+
+    <div class="section-container" id="contact">
+        <div class="glass-panel">
+            <h2 style="color: var(--accent);">Centre Info & Opening Hours</h2>
+            <p style="margin-top: 10px;">Address: Shop C75–C76, 2/F, San Po Kong Plaza, 33 Shung Ling Street, San Po Kong, Kowloon</p>
+            
+            <div class="hours-grid">
+                <div class="hour-item">Mon - Fri<br>14:00 - 21:00</div>
+                <div class="hour-item">Saturday<br>10:00 - 18:00</div>
+                <div class="hour-item">Sunday<br>10:00 - 16:00</div>
+                <div class="hour-item">Public Holidays<br>By Appointment</div>
+            </div>
+            <p style="margin-top: 25px; text-align: center;">Tel / WhatsApp: <strong style="color: var(--accent);">9721 1038</strong></p>
+        </div>
+    </div>
+
+    <div id="ai-trigger">💬</div>
+    <div id="ai-box">
+        <div class="ai-header">
+            <span>Math AI Assistant</span>
+            <span onclick="toggleAI()" style="cursor:pointer">✕</span>
+        </div>
+        <div id="ai-chat">
+            <div class="msg msg-bot">Hello! I'm the Daniel's Education AI. I can solve basic math or suggest the best DSE books for you.</div>
+        </div>
+        <div class="ai-input">
+            <input type="text" id="ai-in" placeholder="Type a sum (e.g. 25*4) or a topic...">
+            <button onclick="aiSend()">Send</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Daniel's Education Centre. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleAI() {
+            const b = document.getElementById('ai-box');
+            b.style.display = b.style.display === 'flex' ? 'none' : 'flex';
+        }
+        document.getElementById('ai-trigger').onclick = toggleAI;
+
+        function aiSend() {
+            const input = document.getElementById('ai-in');
+            const chat = document.getElementById('ai-chat');
+            const val = input.value.trim();
+            if(!val) return;
+
+            const u = document.createElement('div'); u.className = 'msg msg-user'; u.textContent = val;
+            chat.appendChild(u);
+
+            setTimeout(() => {
+                const b = document.createElement('div'); b.className = 'msg msg-bot';
+                let res = "";
+                
+                // Smart Math Detection
+                const mathMatch = val.match(/^[0-9+\-*/().\s]+$/);
+                if(mathMatch) {
+                    try { 
+                        res = "🔢 Calculation Result: " + Function('"use strict";return (' + val + ')')(); 
+                    } catch(e) { res = "Format error. Please try a standard math expression."; }
+                } else if (val.toLowerCase().includes("section a") || val.toLowerCase().includes("compulsory")) {
+                    res = "I recommend our 'Section A(1) & A(2) Drills' for mastering the core foundation of the exam.";
+                } else if (val.toLowerCase().includes("m1") || val.toLowerCase().includes("m2")) {
+                    res = "For the Extended Modules, check out our M1/M2 Solution Guides for deep past-paper analysis.";
+                } else {
+                    res = "That's an interesting math question! For detailed steps on '" + val + "', Daniel recommends our '5** Complete Notes'.";
+                }
+                
+                b.textContent = res;
+                chat.appendChild(b);
+                chat.scrollTop = chat.scrollHeight;
+            }, 600);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>

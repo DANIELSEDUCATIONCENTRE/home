@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教學影片 | 菁藍教育中心</title>
+    <style>
+        :root { --primary: #26c6da; --accent: #00838f; --bg: #e0f7fa; }
+        body { background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%); color: #37474f; font-family: 'Segoe UI', sans-serif; margin: 0; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 8%; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border-bottom: 2px solid #b2ebf2; position: sticky; top: 0; z-index: 100; }
+        nav a { text-decoration: none; color: #37474f; font-weight: 600; margin-left: 20px; }
+        .lang-btn { background: var(--primary); color: white; padding: 5px 12px; border-radius: 20px; }
+        .container { padding: 40px 10%; max-width: 1200px; margin: 0 auto; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 30px; }
+        .video-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #b2ebf2; transition: 0.3s; }
+        .video-card:hover { transform: translateY(-5px); }
+        .video-card iframe { width: 100%; height: 210px; border: none; }
+        .video-info { padding: 20px; }
+        .video-info h3 { color: var(--accent); margin: 0 0 10px 0; font-size: 1.1rem; }
+        .btn-yt { display: inline-block; background: #ff0000; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 style="color: var(--accent); margin: 0;">菁藍教學影片</h2>
+        <nav>
+            <a href="index.html">返回首頁</a>
+            <a href="formulas.html">公式理論</a>
+            <a href="index-en.html" class="lang-btn">EN</a>
+        </nav>
+    </header>
+
+    <div class="container" style="text-align: center;">
+        <h1>DSE 數學教學系列</h1>
+        <p>由 Daniel 老師親自講解，涵蓋必修及延伸部分重點題型。</p>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL-P8m3uYy4H1_7SjWkI7eXjD6u0L8L_8S"></iframe>
+                <div class="video-info">
+                    <h3>DSE 必修部分 A(1) 核心</h3>
+                    <p>穩奪基礎分數的關鍵題型分析。</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL-P8m3uYy4H1O-U9K3Y2D3Y8nK9w4Z7T"></iframe>
+                <div class="video-info">
+                    <h3>概率及排列組合</h3>
+                    <p>深入淺出講解 DSE 最難課題之一。</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL-P8m3uYy4H2-L6T2w1N9zK9j8_4X7V"></iframe>
+                <div class="video-info">
+                    <h3>M2 延伸部分教學</h3>
+                    <p>針對代數及微積分的進階技巧。</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://youtube.com/@dsemaths-ob5bm" class="btn-yt" target="_blank">前往 YouTube 頻道查看更多</a>
+    </div>
+</body>
+</html>

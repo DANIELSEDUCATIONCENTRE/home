@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>DSE 數學幾何及公式庫 | 菁藍教育中心</title>
+    <style>
+        :root { --primary: #26c6da; --accent: #00838f; --bg: #f4fbfc; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
+        header { background: white; padding: 1rem 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #b2ebf2; position: sticky; top: 0; z-index: 100; }
+        .container { padding: 40px 10%; max-width: 1100px; margin: 0 auto; }
+        .theory-section { background: white; padding: 30px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #e0f7fa; }
+        .theory-section h2 { color: var(--accent); border-left: 5px solid var(--primary); padding-left: 15px; margin-bottom: 20px; font-size: 1.5rem; }
+        .formula-box { background: #e0f7fa; padding: 15px; border-radius: 10px; font-family: 'Consolas', monospace; font-weight: bold; margin: 10px 0; border-left: 4px solid var(--primary); }
+        .sub-heading { color: var(--accent); font-weight: bold; margin-top: 20px; display: block; text-decoration: underline; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        nav a { text-decoration: none; color: var(--accent); font-weight: bold; margin-left: 15px; }
+        ul { margin-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 5px; }
+        .reason { color: #d32f2f; font-style: italic; font-size: 0.9rem; } /* Style for geometric reasons */
+    </style>
+</head>
+<body>
+    <header>
+        <h2 style="color: var(--accent);">菁藍教學資源庫</h2>
+        <nav>
+            <a href="index.html">返回首頁</a>
+            <a href="videos.html">教學影片</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 40px;">DSE 數學：幾何、角度及三角形全等證明</h1>
+
+        <div class="theory-section">
+            <h2>1. 直線及多邊形角度 (Lines & Polygons)</h2>
+            <div class="grid">
+                <div>
+                    <span class="sub-heading">直線與平行線:</span>
+                    <ul>
+                        <li>直線上的鄰角: <span class="reason">(adj. ∠s on st. line)</span> = 180°</li>
+                        <li>同頂角: <span class="reason">(∠s at a pt.)</span> = 360°</li>
+                        <li>對頂角: <span class="reason">(vert. opp. ∠s)</span> 相等</li>
+                        <li>同旁內角: <span class="reason">(int. ∠s, AB // CD)</span> 互補 (180°)</li>
+                        <li>內錯角: <span class="reason">(alt. ∠s, AB // CD)</span> 相等</li>
+                        <li>同位角: <span class="reason">(corr. ∠s, AB // CD)</span> 相等</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="sub-heading">多邊形內角與外角:</span>
+                    <p>n 邊形內角和：</p>
+                    <div class="formula-box">(n - 2) × 180°</div>
+                    <p>n 邊形外角和：</p>
+                    <div class="formula-box">360°</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="theory-section">
+            <h2>2. 三角形全等與相似 (Congruence & Similarity)</h2>
+            <p>在 DSE 卷二及大題目中，正確寫出證明理由（Reasons）是取分的關鍵。</p>
+            
+            <div class="grid">
+                <div style="background: #f1f8e9; padding: 15px; border-radius: 10px;">
+                    <span class="sub-heading">全等三角形證明 (Congruent Δs):</span>
+                    <ul>
+                        <li><strong>SSS</strong> <span class="reason">(三邊成比例)</span></li>
+                        <li><strong>SAS</strong> <span class="reason">(兩邊及其夾角)</span></li>
+                        <li><strong>ASA</strong> <span class="reason">(兩角及其夾邊)</span></li>
+                        <li><strong>AAS</strong> <span class="reason">(兩角及一對應邊)</span></li>
+                        <li><strong>RHS</strong> <span class="reason">(直角、斜邊、一條直角邊)</span></li>
+                    </ul>
+                </div>
+                <div style="background: #fff3e0; padding: 15px; border-radius: 10px;">
+                    <span class="sub-heading">相似三角形證明 (Similar Δs):</span>
+                    <ul>
+                        <li><strong>AAA</strong> <span class="reason">(三個角相等)</span></li>
+                        <li><strong>3 sides proportional</strong> <span class="reason">(三邊成比例)</span></li>
+                        <li><strong>Ratio of 2 sides, inc. ∠</strong> <span class="reason">(兩邊成比例且夾角相等)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="theory-section">
+            <h2>3. 圓幾何 (Circle Geometry)</h2>
+            <p>這是 DSE 數學科卷二（MC）佔分最重的部分：</p>
+            <ul>
+                <li><strong>圓心角兩倍於圓周角:</strong> <span class="reason">(∠ at centre twice ∠ at circumference)</span></li>
+                <li><strong>半圓上的圓周角:</strong> <span class="reason">(∠ in semi-circle)</span> = 90°</li>
+                <li><strong>同弧所對的圓周角:</strong> <span class="reason">(∠s in the same segment)</span> 相等</li>
+                <li><strong>圓內接四邊形對角:</strong> <span class="reason">(opp. ∠s, cyclic quad.)</span> 互補 (180°)</li>
+                <li><strong>切線性質:</strong> 切線垂直半徑 <span class="reason">(tangent ⊥ radius)</span></li>
+                <li><strong>交錯弓形的圓周角:</strong> <span class="reason">(∠ in alt. segment)</span> 相等</li>
+            </ul>
+        </div>
+
+        <div class="theory-section">
+            <h2>4. 三角形的四心 (Centers of Triangles)</h2>
+            <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background: var(--primary); color: white;">
+                    <th style="padding: 10px; text-align: left;">名稱 (Name)</th>
+                    <th style="padding: 10px; text-align: left;">定義 (Intersection of...)</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">形心 (Centroid)</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">三條中線 (Medians)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">外心 (Circumcentre)</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">三條垂直平分線 (Perpendicular Bisectors)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">內心 (Incentre)</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">三條角平分線 (Angle Bisectors)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">垂心 (Orthocentre)</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">三條高 (Altitudes)</td>
+                </tr>
+            </table>
+        </div>
+
+        <p style="text-align: center; opacity: 0.6; margin-top: 50px;">溫馨提示：在 DSE 考試中，寫出正確的 Reason (幾何理由) 能確保你獲得步驟分 (M-marks)。</p>
+    </div>
+</body>
+</html>
